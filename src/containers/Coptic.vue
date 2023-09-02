@@ -3,7 +3,8 @@
     <h1 class="text-center">Coptic Module</h1>
     <div class="card p-3 mt-3">
       <nav class="d-flex w-100">
-        <button class="btn me-3" :class="index===currentLessonIndex?'btn-primary':'btn-secondary'" v-for="(lesson,index) in lessons">
+        <button class="btn me-3" :class="index===currentLessonIndex?'btn-primary':'btn-secondary'" 
+        v-for="(lesson,index) in lessons" @click="goToLessson(index)">
           {{ lesson.name }}
         </button>
       </nav>
@@ -96,6 +97,9 @@ export default {
     },
     goBack(){
       if(this.currentLessonIndex>=1) this.currentLessonIndex --;
+    },
+    goToLessson(index){
+      this.currentLessonIndex=index;
     }
  
   }
