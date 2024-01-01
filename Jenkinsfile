@@ -1,6 +1,10 @@
 pipeline {
-    agent any
-
+    agent {
+        node {
+            label 'jenkins_nodejs_agent'
+          
+    }
+    }
     triggers {
                 cron('H */4 * * 1-5')
             }
@@ -15,9 +19,8 @@ pipeline {
             steps {
                 sh '''
                 echo 'Building'
-                apt update && apt install docker
-                docker build .  -t vue_firebase
-                docker-compose up 
+                npm i -dd
+                npm run build
                 '''
             }
         }
