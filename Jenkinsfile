@@ -15,7 +15,7 @@ pipeline {
             steps {
                 sh '''
                 echo 'Building'
-                apk update && apk add docker
+                apt update && apt install docker
                 docker build .  -t vue_firebase
                 docker-compose up 
                 '''
