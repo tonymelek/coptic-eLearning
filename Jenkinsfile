@@ -13,11 +13,11 @@ pipeline {
         }
         stage('Build') {
             steps {
-                sh ```
+                sh '''
                 echo 'Building'
                 docker build .  -t vue_firebase
                 docker-compose up 
-                ```
+                '''
             }
         }
         stage('Test') {
