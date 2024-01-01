@@ -2,9 +2,9 @@ pipeline {
     agent {
         node {
             label 'alpine_agent'
-            triggers{
-                pollSCM 0/5 * * * *
-            }
+              triggers {
+                    cron('H */4 * * 1-5')
+                }
         }
     }
 
