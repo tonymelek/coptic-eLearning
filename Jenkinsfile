@@ -2,6 +2,9 @@ pipeline {
     agent {
         node {
             label 'alpine_agent'
+            triggers{
+                pollSCM 0/5 * * * *
+            }
         }
     }
 
