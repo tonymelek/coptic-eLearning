@@ -1,10 +1,5 @@
 pipeline {
-    agent {
-        node {
-            label 'alpine_agent'
-          
-    }
-    }
+    agent any
 
     triggers {
                 cron('H */4 * * 1-5')
