@@ -24,9 +24,14 @@ pipeline {
                 '''
             }
         }
-        stage('Test') {
+        stage('Build in docker') {
             steps {
-                echo 'Testing'
+                echo 'Build in docker'
+                sh '''
+                docker build . -t vue_firebase
+                docker-compose up
+                ping http://localhost:5555 -c 1
+                '''
             }
         }
           stage('Deploy') {
